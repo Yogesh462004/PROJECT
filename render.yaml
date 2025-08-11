@@ -1,0 +1,32 @@
+# Exported from Render on 2025-08-11T01:44:14Z
+services:
+- type: web
+  name: demo-deployemnt:latest
+  runtime: image
+  image:
+    url: docker.io/yogesh742/demo-deployemnt:latest
+  plan: free
+  envVars:
+  - key: RAZORPAY_KEY_SECRET
+    sync: true
+  - key: RAZORPAY_KEY_ID
+    sync: true
+  - key: CLIPDROP_API_KEY
+    sync: true
+  - key: CLERK_WEBHOOK_SECRET
+    sync: true
+  - key: CLERK_JWKS_URL
+    sync: true
+  - key: CLERK_ISSUER
+    sync: true
+  - key: FRONTEND_URL
+    sync: true
+  - key: MYSQL_URL
+    sync: true
+  - key: MYSQL_PASSWORD
+    sync: true
+  - key: MYSQL_USERNAME
+    sync: true
+  region: oregon
+  autoDeployTrigger: commit
+version: "1"
