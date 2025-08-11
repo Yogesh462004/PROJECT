@@ -1,40 +1,42 @@
-envVars:
+services:
+- type: web
+  name: demo-deployemnt:latest
+  runtime: image
+  image:
+    url: docker.io/yogesh742/demo-deployemnt:latest
+  plan: free
+  envVars:
   - key: MYSQL_USERNAME
     value: root
     sync: true
-
   - key: MYSQL_PASSWORD
     value: budwAmuQvDdUNlEkkOmyobnvnRfNtDVb
     sync: true
-
   - key: MYSQL_URL
     value: jdbc:mysql://shuttle.proxy.rlwy.net:52513/railway
     sync: true
-
   - key: FRONTEND_URL
     value: http://localhost:5174/
     sync: true
-
   - key: CLERK_ISSUER
     value: https://endless-reindeer-17.clerk.accounts.dev
     sync: true
-
   - key: CLERK_JWKS_URL
     value: https://endless-reindeer-17.clerk.accounts.dev/.well-known/jwks.json
     sync: true
-
   - key: CLERK_WEBHOOK_SECRET
     value: whsec_5mc9jO9Fwgxme4f4X09TcQ8wPW+UzOBj
     sync: true
-
   - key: CLIPDROP_API_KEY
     value: e5943408abe051a13253a405f0f133cca1cc715367b4cd1ef748a14bb2441206ea008df5f923e3ca7fe48ec86175377a
     sync: true
-
   - key: RAZORPAY_KEY_ID
     value: rzp_test_UaarnnQRl1Gd4D
     sync: true
-
   - key: RAZORPAY_KEY_SECRET
     value: tLHiuMDvzPCN4C0icuAWxWgL
     sync: true
+  region: oregon
+  autoDeployTrigger: commit
+version: "1"
+
